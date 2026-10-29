@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="is-loading">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07080a">
+    <meta name="description" content="NOCTIS. An electric grand tourer, made for the hours after dark.">
+    <title>NOCTIS — Drive the night</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="preloader" id="preloader" role="status" aria-live="polite">
+      <a class="wordmark preloader-wordmark" href="#top" aria-label="NOCTIS home">NOCTIS</a>
+      <div class="preloader-meter">
+        <span class="preloader-line" id="preloader-line"></span>
+      </div>
+      <p class="preloader-copy" id="preloader-copy">PREPARING THE NIGHT <span id="load-count">000</span></p>
+      <button class="preloader-retry" id="preloader-retry" type="button" hidden>RETRY FRAME LOAD</button>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="headlight-cursor" aria-hidden="true">
+      <span class="cursor-ring"></span>
+      <span class="cursor-dot"></span>
+      <span class="cursor-label"></span>
+    </div>
+
+    <header class="site-nav" id="site-nav">
+      <a class="wordmark" href="#top" data-cursor-label="HOME">NOCTIS</a>
+      <nav aria-label="Main navigation">
+        <a href="#lineup" data-cursor-label="VIEW">Models</a>
+        <a href="#technology" data-cursor-label="VIEW">Technology</a>
+        <a href="#reserve" data-cursor-label="RESERVE">Reserve</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="pinned-section hero-section" id="top" data-scene="hero" aria-label="NOCTIS GT-E at night">
+        <div class="sticky-stage hero-stage">
+          <canvas class="scene-canvas" id="hero-canvas" role="img" aria-label="A car moving through a dark city"></canvas>
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-chapters">
+            <div class="hero-chapter chapter-opening">
+              <span class="chapter-mask"><span class="chapter-line display-type">NOCTIS</span></span>
+              <p class="chapter-subtitle">The city is asleep.</p>
+              <p class="scroll-hint"><span class="hint-line"></span>SCROLL TO WAKE IT</p>
+            </div>
+            <div class="hero-chapter chapter-middle chapter-light">
+              <span class="chapter-mask"><span class="chapter-line display-type">It doesn't need</span></span>
+              <span class="chapter-mask"><span class="chapter-line display-type">the city's light.</span></span>
+            </div>
+            <div class="hero-chapter chapter-middle chapter-own">
+              <span class="chapter-mask"><span class="chapter-line display-type">It brings its own.</span></span>
+            </div>
+            <div class="hero-chapter chapter-product">
+              <span class="chapter-mask"><span class="chapter-line display-type">GT-E</span></span>
+              <p class="spec-line">0–100 KM/H 3.1S <span>·</span> 640 KM RANGE <span>·</span> DUAL MOTOR</p>
+              <a class="text-link" href="#lineup" data-cursor-label="VIEW">Discover the GT-E <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <aside class="hero-hud" aria-label="Drive telemetry">
+            <span class="hud-chapter"><i></i><span id="chapter-count">01 / 04</span></span>
+            <span class="hud-stat"><span>SPEED</span><strong><span id="speed-count">000</span> KM/H</strong></span>
+            <span class="hud-stat"><span>DISTANCE</span><strong><span id="distance-count">0.0</span> KM</strong></span>
+          </aside>
+          <div class="section-progress" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <section class="statement-section" id="engineering" aria-labelledby="statement-title">
+        <div class="statement-inner">
+          <p class="eyebrow">02 — ENGINEERING</p>
+          <h1 class="statement-heading" id="statement-title" data-word-reveal>Every part was designed to disappear into one line of light.</h1>
+        </div>
+      </section>
+
+      <section class="pinned-section dismantle-section" id="technology" data-scene="dismantle" aria-label="Inside the NOCTIS GT-E">
+        <div class="sticky-stage dismantle-stage">
+          <canvas class="scene-canvas" id="dismantle-canvas" role="img" aria-label="The NOCTIS GT-E revealed in an exploded view"></canvas>
+          <div class="dismantle-shade" aria-hidden="true"></div>
+          <h2 class="dismantle-title display-type">Look closer.</h2>
+          <div class="callout-layer" id="callout-layer"></div>
+          <div class="section-progress" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <section class="lineup-section" id="lineup" aria-labelledby="lineup-title">
+        <header class="lineup-heading reveal-on-view">
+          <div>
+            <p class="eyebrow">03 — THE LINEUP</p>
+            <h2 class="display-type" id="lineup-title">Five ways to drive the night.</h2>
+          </div>
+          <span class="lineup-index">01 <i></i> 05</span>
+        </header>
+        <div class="lineup-slides" id="lineup-slides" aria-label="Explore the NOCTIS models"></div>
+      </section>
+
+      <section class="reserve-section" id="reserve" aria-labelledby="reserve-title">
+        <div class="reserve-content reveal-on-view">
+          <p class="eyebrow">THE NIGHT IS YOURS</p>
+          <h2 class="display-type" id="reserve-title">Drive the night.</h2>
+          <p>For those who find their way after dark.</p>
+          <a class="reserve-button" href="mailto:reserve@noctis.example" data-cursor-label="RESERVE">RESERVE YOUR NOCTIS <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#top" data-cursor-label="HOME">NOCTIS</a>
+      <div class="footer-links">
+        <div><span>EXPLORE</span><a href="#lineup">Models</a><a href="#technology">Engineering</a></div>
+        <div><span>CONNECT</span><a href="mailto:hello@noctis.example">Contact</a><a href="#reserve">Reserve</a></div>
+        <div><span>FOLLOW</span><a href="#top">Instagram ↗</a><a href="#top">Journal ↗</a></div>
+      </div>
+      <p class="copyright">© 2026 NOCTIS <span>FICTIONAL BRAND</span></p>
+    </footer>
+  </body>
+</html>
