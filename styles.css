@@ -225,8 +225,7 @@ button {
   height: 100%;
 }
 
-.hero-shade,
-.dismantle-shade {
+.hero-shade {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -435,64 +434,39 @@ button {
   transition: opacity 100ms linear;
 }
 
-.dismantle-title {
+.reveal-caption {
   position: absolute;
   z-index: 2;
   top: 12%;
   left: 8vw;
+  pointer-events: none;
+}
+
+.reveal-caption .eyebrow {
+  margin-bottom: 12px;
+}
+
+.reveal-caption h2 {
   margin: 0;
   font-size: clamp(34px, 5vw, 70px);
 }
 
-.callout-layer {
+.reveal-caption > p:last-child {
+  margin: 12px 0 0;
+  color: var(--fog);
+  font-size: 13px;
+}
+
+.reveal-state {
   position: absolute;
-  inset: 0;
-}
-
-.callout {
-  position: absolute;
-  display: grid;
-  grid-template-columns: 8px auto;
-  align-items: start;
-  column-gap: 10px;
-  width: min(260px, 27vw);
-  opacity: 0;
-  transform: translate(var(--callout-offset, 0), 10px);
-  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
-}
-
-.callout.is-visible {
-  opacity: 1;
-  transform: translate(var(--callout-offset, 0), 0);
-}
-
-.callout-dot {
-  width: 5px;
-  height: 5px;
-  margin-top: 5px;
-  border-radius: 50%;
-  background: var(--xenon);
-}
-
-.callout-copy {
-  padding-top: 1px;
-  border-top: 1px solid var(--hairline);
-}
-
-.callout-copy strong {
-  display: block;
-  margin: 8px 0 3px;
+  z-index: 2;
+  right: 5vw;
+  bottom: 30px;
+  color: var(--bone);
   font-family: var(--hud);
   font-size: 10px;
-  font-weight: 400;
   letter-spacing: 0.12em;
-}
-
-.callout-copy span {
-  display: block;
-  color: var(--fog);
-  font-size: 12px;
-  line-height: 1.5;
+  pointer-events: none;
 }
 
 .lineup-section {
@@ -566,8 +540,8 @@ button {
   transform: translateY(40px);
   transition:
     flex-grow 700ms var(--ease),
-    opacity 900ms var(--ease),
-    transform 900ms var(--ease);
+    opacity 900ms var(--ease) var(--reveal-delay, 0ms),
+    transform 900ms var(--ease) var(--reveal-delay, 0ms);
 }
 
 .lineup-section.is-visible .model-slide {
@@ -690,41 +664,6 @@ button {
 .slide-description {
   margin: 0 0 2px;
   font-size: 14px;
-}
-
-.slide-specs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 470px;
-  gap: 18px;
-  color: var(--fog);
-  font-family: var(--hud);
-  font-size: 9px;
-  letter-spacing: 0.09em;
-}
-
-.slide-specs span {
-  color: var(--bone);
-}
-
-.slide-colors {
-  display: flex;
-  gap: 8px;
-  margin: 2px 0;
-}
-
-.color-swatch {
-  width: 12px;
-  height: 12px;
-  padding: 0;
-  border: 1px solid transparent;
-  background: var(--swatch);
-  cursor: pointer;
-}
-
-.color-swatch[aria-pressed="true"] {
-  outline: 1px solid var(--bone);
-  outline-offset: 2px;
 }
 
 .configure-link {
@@ -996,23 +935,20 @@ button {
     font-size: clamp(38px, 10vw, 64px);
   }
 
-  .dismantle-title {
+  .reveal-caption {
     top: 12%;
     left: 7vw;
   }
 
-  .callout {
-    grid-template-columns: 6px auto;
-    column-gap: 6px;
-    width: 42vw;
+  .reveal-caption > p:last-child {
+    max-width: 30ch;
+    font-size: 11px;
   }
 
-  .callout-copy strong {
+  .reveal-state {
+    right: 6vw;
+    bottom: 22px;
     font-size: 9px;
-  }
-
-  .callout-copy span {
-    font-size: 10px;
   }
 
   .lineup-section {
@@ -1100,11 +1036,6 @@ button {
 
   .slide-description {
     font-size: 13px;
-  }
-
-  .slide-specs {
-    gap: 8px;
-    font-size: 8px;
   }
 
   .reserve-section {
@@ -1209,11 +1140,6 @@ button {
 
   .hero-hud {
     display: none;
-  }
-
-  .callout {
-    opacity: 1;
-    transform: none;
   }
 
   .reveal-on-view,
